@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VIRELLE</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen">
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <nav class="bg-[#0f1111] text-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 py-3 flex items-center justify-between gap-4">
+        <a href="#home" class="flex items-center gap-3 group" data-nav="home">
+          <div class="w-9 h-9 rounded-xl grid place-items-center glass" aria-hidden="true">
+            <span class="brand-serif text-[14px] text-black/80">V</span>
+          </div>
+          <div class="leading-tight">
+            <div class="brand-serif tracking-[.18em] text-[13px]">VIRELLE</div>
+            <div class="text-[11px] text-white/70">Modern luxury, effortless silhouette.</div>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-1 text-sm">
+          <a class="nav-link" href="#home" data-page="home" aria-current="page">Home</a>
+          
+          <div class="nav-dd" data-dropdown="ready">
+            <button class="nav-link nav-dd-trigger" id="ddReadyBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddReadyMenu">
+              Ready-to-Wear
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddReadyMenu" role="menu" aria-labelledby="ddReadyBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Dresses">Dresses</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Tops">Tops</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Bottoms">Bottoms</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Blazers">Blazers</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Outerwear">Outerwear</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Co-ords">Co-ords</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Knitwear">Knitwear</button>
+            </div>
+          </div>
+          
+          <div class="nav-dd" data-dropdown="accessories">
+            <button class="nav-link nav-dd-trigger" id="ddAccessoriesBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddAccessoriesMenu">
+              Accessories
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddAccessoriesMenu" role="menu" aria-labelledby="ddAccessoriesBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Jewelry">Jewelry</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Bags">Bags</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Watches">Watches</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Sunglasses">Sunglasses</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Hats">Hats</button>
+            </div>
+          </div>
+
+          <a class="nav-link" href="#new" data-page="home" data-scroll="#new-arrivals">New Arrivals</a>
+          
+          <div class="nav-dd" data-dropdown="fragrance">
+            <button class="nav-link nav-dd-trigger" id="ddFragranceBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddFragranceMenu">
+              Fragrances
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddFragranceMenu" role="menu" aria-labelledby="ddFragranceBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Bella Vita">Bella Vita</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Floral">Floral</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Woody">Woody</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Citrus">Citrus</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Musk">Musk</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Oud">Oud</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Vanilla">Vanilla</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Fresh">Fresh</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Luxury Collections">Luxury Collections</button>
+            </div>
+          </div>
+
+          <div class="nav-dd" data-dropdown="skincare">
+            <button class="nav-link nav-dd-trigger" id="ddSkincareBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddSkincareMenu">
+              Skincare
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddSkincareMenu" role="menu" aria-labelledby="ddSkincareBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Cleansers">Cleansers</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Moisturizers">Moisturizers</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Serums">Serums</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Sunscreen">Sunscreen</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Masks">Masks</button>
+            </div>
+          </div>
+
+          <a class="nav-link" href="#contact" data-page="home" data-scroll="#contact">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost hidden sm:inline-flex" id="btnSearch" type="button" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 19a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17Z" stroke="currentColor" stroke-width="1.6"/><path d="M16.9 16.9 21 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span class="hidden lg:inline">Search</span>
+          </button>
+          <button class="btn btn-ghost relative" id="btnCart" type="button" aria-label="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h14l-2 9H8L7 7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 7 6 3H3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM18 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span class="hidden lg:inline">Cart</span>
+            <span id="cartBadge" class="absolute -top-2 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-white text-black text-[11px] grid place-items-center border border-black/10">0</span>
+          </button>
+          <button class="md:hidden btn btn-ghost" id="btnMenu" type="button" aria-label="Open menu" aria-expanded="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-3 flex flex-col gap-1 text-sm">
+          <a class="nav-link" href="#home" data-page="home">Home</a>
+          
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Ready-to-Wear menu">
+              Ready-to-Wear <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Dresses">Dresses</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Tops">Tops</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Bottoms">Bottoms</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Blazers">Blazers</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Outerwear">Outerwear</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Co-ords">Co-ords</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Knitwear">Knitwear</button>
+            </div>
+          </details>
+
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Accessories menu">
+              Accessories <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Jewelry">Jewelry</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Bags">Bags</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Watches">Watches</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Sunglasses">Sunglasses</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Hats">Hats</button>
+            </div>
+          </details>
+
+          <a class="nav-link" href="#new" data-page="home" data-scroll="#new-arrivals">New Arrivals</a>
+          
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Fragrances menu">
+              Fragrances <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Bella Vita">Bella Vita</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Floral">Floral</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Woody">Woody</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Citrus">Citrus</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Musk">Musk</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Oud">Oud</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Vanilla">Vanilla</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Fresh">Fresh</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Luxury Collections">Luxury Collections</button>
+            </div>
+          </details>
+
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Skincare menu">
+              Skincare <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Cleansers">Cleansers</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Moisturizers">Moisturizers</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Serums">Serums</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Sunscreen">Sunscreen</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Masks">Masks</button>
+            </div>
+          </details>
+
+          <a class="nav-link" href="#contact" data-page="home" data-scroll="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="pt-[92px]">
+    <!-- HOME -->
+    <section id="page-home" class="fade-in">
+      <!-- Hero -->
+      <section id="home" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-10">
+        <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+          <div class="lg:col-span-7 card p-6 sm:p-8 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[.18]" aria-hidden="true" style="background:
+              radial-gradient(520px 240px at 18% 20%, rgba(201,162,125,.85), transparent 60%),
+              radial-gradient(500px 260px at 88% 18%, rgba(195,214,207,.95), transparent 60%),
+              linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.00));"></div>
+
+            <div class="relative">
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="chip">Premium edit</span>
+                <span class="chip">Pastel neutrals</span>
+                <span class="chip">Limited drops</span>
+              </div>
+              <h2 class="brand-serif section-title text-4xl sm:text-5xl">A clean luxury wardrobe, curated for now.</h2>
+              <p class="mt-4 text-[15px] sm:text-[16px] text-black/70 max-w-xl">
+                Minimal lines, impeccable tailoring, soft neutrals — discover elevated essentials that feel modern and timeless.
+              </p>
+              <div class="mt-7 flex flex-wrap gap-3">
+                <a class="btn btn-primary" href="#ready-to-wear" data-page="ready">
+                  Shop Ready-to-Wear
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a class="btn btn-ghost" href="#new" data-scroll="#new-arrivals">Explore New Arrivals</a>
+              </div>
+
+              <div class="mt-8 grid grid-cols-3 gap-4">
+                <div class="glass rounded-2xl p-4 border border-black/5">
+                  <div class="text-xs text-black/60">Free delivery</div>
+                  <div class="mt-1 font-medium">On orders over $120</div>
+                </div>
+                <div class="glass rounded-2xl p-4 border border-black/5">
+                  <div class="text-xs text-black/60">Express returns</div>
+                  <div class="mt-1 font-medium">14‑day window</div>
+                </div>
+                <div class="glass rounded-2xl p-4 border border-black/5">
+                  <div class="text-xs text-black/60">Members</div>
+                  <div class="mt-1 font-medium">Early access drops</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+            <div class="card img-zoom">
+              <div class="relative h-[260px] sm:h-[280px] lg:h-[250px] overflow-hidden">
+                <img alt="Editorial look" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/23/a3/59/23a3594fbb34f1d82830a4676454caee.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                <div class="absolute left-5 right-5 bottom-5">
+                  <div class="text-xs text-white/70">The Atelier Edit</div>
+                  <div class="brand-serif text-white text-2xl leading-tight">Evening silhouettes</div>
+                  <a class="mt-3 inline-flex items-center gap-2 text-white/90 hover:text-white text-sm" href="#ready-to-wear" data-page="ready">
+                    Shop gowns
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card img-zoom">
+              <div class="relative h-[260px] sm:h-[280px] lg:h-[250px] overflow-hidden">
+                <img alt="Tailoring" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/6e/9f/4a/6e9f4a84c17979828c42f2ec586ecc2d.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                <div class="absolute left-5 right-5 bottom-5">
+                  <div class="text-xs text-white/70">Precision tailoring</div>
+                  <div class="brand-serif text-white text-2xl leading-tight">Blazers & outerwear</div>
+                  <a class="mt-3 inline-flex items-center gap-2 text-white/90 hover:text-white text-sm" href="#ready-to-wear" data-page="ready">
+                    Shop outerwear
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Most sold-out -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Most sold‑out outfits</h3>
+            <p class="mt-2 text-sm text-black/65">A glimpse at what disappeared first — back soon.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">Shop similar</a>
+        </div>
+        <div id="soldOutGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+
+      <!-- Trending outfits -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Trending outfits</h3>
+            <p class="mt-2 text-sm text-black/65">The silhouettes everyone is saving right now.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">Shop trending</a>
+        </div>
+        <div id="trendingOutfitsGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+
+      <!-- Shop by category -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Shop by category</h3>
+            <p class="mt-2 text-sm text-black/65">Tops, bottoms, and outerwear — styled for a calm, luxury capsule.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">View all</a>
+        </div>
+        <div class="mt-6 grid md:grid-cols-3 gap-6">
+          <button type="button" class="card img-zoom text-left" data-page="ready" data-setcategory="Tops">
+            <div class="relative h-[220px] overflow-hidden">
+              <img alt="Tops" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/ce/6b/cf/ce6bcf8afd61d6d5c22666e81334d8b8.jpg" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <div class="absolute left-5 right-5 bottom-5">
+                <div class="text-xs text-white/70 tracking-[.18em]">TOPS</div>
+                <div class="brand-serif text-white text-2xl leading-tight">Draped & minimal</div>
+                <div class="mt-2 text-sm text-white/80">Shop tops →</div>
+              </div>
+            </div>
+          </button>
+          <button type="button" class="card img-zoom text-left" data-page="ready" data-setcategory="Bottoms">
+            <div class="relative h-[220px] overflow-hidden">
+              <img alt="Bottoms" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/2d/40/c3/2d40c39a750c977163f9473d7bc99bb6.jpg" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <div class="absolute left-5 right-5 bottom-5">
+                <div class="text-xs text-white/70 tracking-[.18em]">BOTTOMS</div>
+                <div class="brand-serif text-white text-2xl leading-tight">Clean lines</div>
+                <div class="mt-2 text-sm text-white/80">Shop bottoms →</div>
+              </div>
+            </div>
+          </button>
+          <button type="button" class="card img-zoom text-left" data-page="ready" data-setcategory="Outerwear">
+            <div class="relative h-[220px] overflow-hidden">
+              <img alt="Outerwear" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/3f/2b/4c/3f2b4cf988a0e89ab2f18212cce770fa.jpg" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <div class="absolute left-5 right-5 bottom-5">
+                <div class="text-xs text-white/70 tracking-[.18em]">OUTERWEAR</div>
+                <div class="brand-serif text-white text-2xl leading-tight">Tailored layers</div>
+                <div class="mt-2 text-sm text-white/80">Shop outerwear →</div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Best sellers -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Best sellers</h3>
+            <p class="mt-2 text-sm text-black/65">Everyday icons, elevated.</p>
+          </div>
+          <div class="flex gap-2">
+            <button class="btn btn-ghost px-4 py-2" type="button" id="bsPrev" aria-label="Scroll best sellers left">←</button>
+            <button class="btn btn-ghost px-4 py-2" type="button" id="bsNext" aria-label="Scroll best sellers right">→</button>
+          </div>
+        </div>
+        <div id="bestSellersRow" class="mt-6 flex gap-6 overflow-x-auto pb-2 h-scroll snap-x snap-mandatory"></div>
+      </section>
+
+      <!-- Limited edition -->
+      <section id="limited-edition" class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="card p-6 sm:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div>
+              <h3 class="brand-serif section-title text-3xl">Limited edition pieces</h3>
+              <p class="mt-2 text-sm text-black/65 max-w-2xl">A curated edit of exclusive styles, crafted for rarity, collectability, and seasonal shine.</p>
+              <div class="mt-4 flex flex-wrap gap-2" id="collectionChips"></div>
+              <div id="limitedEditionFeatured" class="mt-6"></div>
+            </div>
+            <div class="flex gap-3">
+              <a class="btn btn-primary" href="#ready-to-wear" data-page="ready">Shop limited edition</a>
+              <a class="btn btn-ghost" href="#featured" data-scroll="#featured">View featured</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured products -->
+      <section id="featured" class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Featured products</h3>
+            <p class="mt-2 text-sm text-black/65">Premium details, refined finishes.</p>
+          </div>
+        </div>
+        <div id="featuredGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </section>
+
+      <!-- Promotions -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="grid lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-7 card overflow-hidden">
+            <div class="grid sm:grid-cols-2">
+              <div class="p-6 sm:p-8">
+                <div class="text-xs tracking-[.18em] text-black/55">LIMITED DROP</div>
+                <h3 class="mt-2 brand-serif section-title text-3xl">Neutral co‑ords, perfected.</h3>
+                <p class="mt-3 text-sm text-black/65">A clean set you can dress up or down — designed to move with you.</p>
+                <div class="mt-6 flex gap-3">
+                  <a class="btn btn-primary" href="#ready-to-wear" data-page="ready">Shop co‑ords</a>
+                  <button class="btn btn-ghost" type="button" id="btnNotify">Notify me</button>
+                </div>
+              </div>
+              <div class="relative h-[260px] sm:h-auto img-zoom">
+                <img alt="Co-ords" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/61/7f/83/617f832f884ef181e273dfdb5ded3ea9.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-l from-black/15 via-transparent to-transparent"></div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 grid gap-6">
+            <div class="card p-6 sm:p-8">
+              <div class="text-xs tracking-[.18em] text-black/55">MEMBER BENEFIT</div>
+              <h3 class="mt-2 brand-serif section-title text-2xl">Early access to new arrivals</h3>
+              <p class="mt-3 text-sm text-black/65">Get first pick on limited runs and seasonal drops.</p>
+              <div class="mt-5 flex gap-3">
+                <button class="btn btn-primary" id="btnJoin" type="button">Join Virelle</button>
+                <a class="btn btn-ghost" href="#contact" data-scroll="#contact">Contact us</a>
+              </div>
+            </div>
+            <div class="card p-6 sm:p-8">
+              <div class="text-xs tracking-[.18em] text-black/55">GIFTING</div>
+              <h3 class="mt-2 brand-serif section-title text-2xl">Signature packaging</h3>
+              <p class="mt-3 text-sm text-black/65">Luxury wrapping included on request — a minimal ribbon finish.</p>
+              <div class="mt-5">
+                <span class="chip">Complimentary</span>
+                <span class="chip">Eco materials</span>
+                <span class="chip">Hand‑finished</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Arrivals -->
+      <section id="new-arrivals" class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">New arrivals</h3>
+            <p class="mt-2 text-sm text-black/65">Fresh silhouettes in soft neutral tones.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">Shop all</a>
+        </div>
+        <div id="newArrivalsGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+
+      <!-- Best Seller Fragrances -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Best seller fragrances</h3>
+            <p class="mt-2 text-sm text-black/65">Popular perfumes in elegant, luxury cards.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#fragrances" data-page="fragrance">Shop fragrances</a>
+        </div>
+        <div id="bestSellerFragrancesGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- READY-TO-WEAR -->
+    <section id="page-ready" class="hidden fade-in">
+      <section id="ready-to-wear" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Ready‑to‑Wear</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Explore refined essentials — dresses, tailoring, outerwear, knits, and elevated daywear.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="rtwCategories"></div>
+          </div>
+          <div class="card p-4 sm:p-5 w-full lg:w-[420px]">
+            <label class="text-xs tracking-[.18em] text-black/55" for="searchInput">SEARCH</label>
+            <div class="mt-2 flex gap-2">
+              <input id="searchInput" class="w-full bg-white/70 border border-black/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-black/20 focus:bg-white" placeholder="Search products (e.g. blazer, satin, knit)" />
+              <button class="btn btn-primary px-5" id="btnClear" type="button">Clear</button>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-xs text-black/55">
+              <span id="resultCount">0 items</span>
+              <button class="underline hover:text-black" id="btnViewHome" type="button">Back to Home</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="rtwGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- FRAGRANCES -->
+    <section id="page-fragrance" class="hidden fade-in">
+      <section id="fragrances" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Fragrances</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Soft florals, clean musks, and warm ambers — a minimal fragrance wardrobe that feels quietly luxurious.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="fragFamilies"></div>
+          </div>
+          <div class="card p-4 sm:p-5 w-full lg:w-[420px]">
+            <label class="text-xs tracking-[.18em] text-black/55" for="fragSearch">SEARCH</label>
+            <div class="mt-2 flex gap-2">
+              <input id="fragSearch" class="w-full bg-white/70 border border-black/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-black/20 focus:bg-white" placeholder="Search scents (e.g. musk, amber, floral)" />
+              <button class="btn btn-primary px-5" id="btnFragClear" type="button">Clear</button>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-xs text-black/55">
+              <span id="fragCount">0 items</span>
+              <button class="underline hover:text-black" id="btnFragHome" type="button">Back to Home</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="fragGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- ACCESSORIES -->
+    <section id="page-accessories" class="hidden fade-in">
+      <section id="accessories" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Accessories</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Delicate jewelry and storybook watches to complete every outfit.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="accessoriesCategories"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="accessoriesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <section id="page-skincare" class="hidden fade-in">
+      <section id="skincare" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Skincare</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Gentle and effective skincare products for your daily routine.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="skincareCategories"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="skincareGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="border-t border-black/10 bg-white/60">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 py-12 grid lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-5">
+          <div class="brand-serif tracking-[.18em]">VIRELLE</div>
+          <p class="mt-3 text-sm text-black/65 max-w-md">Luxury essentials in pastel neutrals. Crafted with modern tailoring and a calm, premium shopping experience.</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="chip">Secure checkout</span>
+            <span class="chip">Worldwide shipping</span>
+            <span class="chip">Premium support</span>
+          </div>
+        </div>
+        <div class="lg:col-span-7 grid sm:grid-cols-3 gap-6 text-sm">
+          <div>
+            <div class="text-xs tracking-[.18em] text-black/55">SHOP</div>
+            <div class="mt-3 grid gap-2">
+              <a class="hover:underline" href="#ready-to-wear" data-page="ready">Ready‑to‑Wear</a>
+              <a class="hover:underline" href="#featured" data-scroll="#featured" data-page="home">Featured</a>
+              <a class="hover:underline" href="#new" data-scroll="#new-arrivals" data-page="home">New Arrivals</a>
+              <a class="hover:underline" href="#fragrances" data-page="fragrance">Fragrances</a>
+              <a class="hover:underline" href="#skincare" data-page="skincare">Skincare</a>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs tracking-[.18em] text-black/55">HELP</div>
+            <div class="mt-3 grid gap-2">
+              <a class="hover:underline" href="#contact" data-scroll="#contact" data-page="home">Contact</a>
+              <button class="text-left hover:underline" id="btnShipping" type="button">Shipping</button>
+              <button class="text-left hover:underline" id="btnReturns" type="button">Returns</button>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs tracking-[.18em] text-black/55">NEWSLETTER</div>
+            <div class="mt-3">
+              <div class="flex gap-2">
+                <input id="emailInput" class="w-full bg-white/70 border border-black/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-black/20 focus:bg-white" placeholder="Email address" />
+                <button class="btn btn-primary px-5" id="btnSubscribe" type="button">Join</button>
+              </div>
+              <p class="mt-2 text-xs text-black/50">No spam — only curated drops and styling notes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 pb-8 text-xs text-black/45 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>© <span id="year"></span> VIRELLE. All rights reserved.</div>
+        <div class="flex gap-4">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>Cookies</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <div class="card p-4 sm:p-5 flex items-start gap-3">
+      <div class="w-9 h-9 rounded-xl grid place-items-center bg-black/90 text-white" aria-hidden="true">✓</div>
+      <div class="flex-1">
+        <div class="font-medium" id="toastTitle">Added to cart</div>
+        <div class="text-sm text-black/60" id="toastBody">Item added.</div>
+      </div>
+      <button class="btn btn-ghost px-3 py-2" id="toastClose" type="button" aria-label="Close toast">✕</button>
+    </div>
+  </div>
+
+  <!-- Cart + Checkout Drawer -->
+  <div id="cartOverlay" class="drawer-overlay hidden" aria-hidden="true"></div>
+  <aside id="cartDrawer" class="drawer hidden" aria-label="Shopping cart" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <div>
+        <div class="text-xs tracking-[.18em] text-black/55">CART</div>
+        <div class="brand-serif text-2xl leading-tight">Your selection</div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="btnCartClear" class="btn btn-ghost px-4 py-2" type="button">Clear</button>
+        <button id="btnCartClose" class="btn btn-ghost px-4 py-2" type="button" aria-label="Close cart">✕</button>
+      </div>
+    </div>
+
+    <div class="drawer-body">
+      <div id="cartEmpty" class="card p-6">
+        <div class="brand-serif text-xl">Your cart is empty.</div>
+        <p class="mt-2 text-sm text-black/65">Add a few pieces you love — your premium edit will appear here.</p>
+        <div class="mt-5 flex gap-3">
+          <button id="btnShopReady" class="btn btn-primary" type="button">Shop Ready‑to‑Wear</button>
+          <button id="btnShopFrag" class="btn btn-ghost" type="button">Shop Fragrances</button>
+        </div>
+      </div>
+
+      <div id="cartItemsWrap" class="hidden">
+        <div id="cartItems" class="grid gap-3"></div>
+
+        <div class="mt-5 card p-5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-black/60">Total</span>
+            <span class="text-lg font-medium" id="cartTotal">$0.00</span>
+          </div>
+          <div class="mt-4 flex flex-col sm:flex-row gap-3">
+            <button id="btnCheckout" class="btn btn-primary w-full justify-center py-3" type="button">Buy Now / Checkout</button>
+            <button id="btnContinueShopping" class="btn btn-ghost w-full justify-center py-3" type="button">Continue shopping</button>
+          </div>
+          <p class="mt-3 text-xs text-black/50">Taxes calculated at checkout (demo). Secure payments with luxury‑grade UI.</p>
+        </div>
+
+        <!-- Delivery process -->
+        <section id="checkoutPanel" class="mt-6 hidden">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[.18em] text-black/55">DELIVERY</div>
+              <div class="brand-serif text-2xl leading-tight">Shipping & payment</div>
+              <p class="mt-2 text-sm text-black/65">Estimated delivery: <span class="font-medium" id="etaDate">—</span></p>
+            </div>
+            <button id="btnCheckoutBack" class="btn btn-ghost px-4 py-2" type="button">Back</button>
+          </div>
+
+          <div class="mt-5 grid lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-7">
+              <form id="shippingForm" class="card p-5 grid gap-4">
+                <div class="text-xs tracking-[.18em] text-black/55">SHIPPING ADDRESS</div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-black/60" for="shipName">Full name</label>
+                    <input id="shipName" class="lux-input" autocomplete="name" placeholder="Your name" required />
+                  </div>
+                  <div>
+                    <label class="text-xs text-black/60" for="shipPhone">Phone</label>
+                    <input id="shipPhone" class="lux-input" inputmode="tel" autocomplete="tel" placeholder="10-digit phone" required />
+                  </div>
+                </div>
+                <div>
+                  <label class="text-xs text-black/60" for="shipAddress1">Address</label>
+                  <input id="shipAddress1" class="lux-input" autocomplete="street-address" placeholder="House / Street" required />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-black/60" for="shipCity">City</label>
+                    <input id="shipCity" class="lux-input" autocomplete="address-level2" placeholder="City" required />
+                  </div>
+                  <div>
+                    <label class="text-xs text-black/60" for="shipState">State</label>
+                    <input id="shipState" class="lux-input" autocomplete="address-level1" placeholder="State" required />
+                  </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-black/60" for="shipPincode">Pincode</label>
+                    <input id="shipPincode" class="lux-input" inputmode="numeric" autocomplete="postal-code" placeholder="Postal code" required />
+                  </div>
+                  <div>
+                    <label class="text-xs text-black/60" for="shipCountry">Country</label>
+                    <input id="shipCountry" class="lux-input" autocomplete="country-name" value="India" required />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <div class="text-xs text-black/55">Tracking updates will appear instantly (demo).</div>
+                  <button class="btn btn-primary px-6 py-3" id="btnPlaceOrder" type="submit">Place order</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="lg:col-span-5 grid gap-5">
+              <div class="card p-5">
+                <div class="text-xs tracking-[.18em] text-black/55">ORDER TRACKING</div>
+                <ol id="trackingSteps" class="mt-4 tracking-steps">
+                  <li class="step is-active"><span class="dot"></span><span class="label">Order placed</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Packed</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Shipped</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Out for delivery</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Delivered</span></li>
+                </ol>
+                <div class="mt-4 text-xs text-black/55">Order ID: <span class="font-medium" id="orderId">—</span></div>
+              </div>
+
+              <div class="card p-5">
+                <div class="text-xs tracking-[.18em] text-black/55">PAYMENT OPTIONS</div>
+                <div class="mt-4 grid gap-2" id="paymentOptions">
+                  <label class="pay-option"><input type="radio" name="payment" value="cod" checked /><span>Cash on Delivery</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="upi" /><span>UPI</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="debit" /><span>Debit Card</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="credit" /><span>Credit Card</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="netbanking" /><span>Net Banking</span></label>
+                </div>
+                <div class="mt-4 card p-4 bg-white/70 border border-black/10">
+                  <div class="text-xs tracking-[.18em] text-black/55">PAYMENT NOTE</div>
+                  <div class="mt-2 text-sm text-black/65" id="paymentHint">Pay when it arrives. Open box delivery available (demo).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </aside>
+</body>
+</html>
